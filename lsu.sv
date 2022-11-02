@@ -15,10 +15,11 @@ module lsu (
   output logic [31:0] io_hex_o[7:0]
 );
   //demux to data_mem, external_mem
-  logic  [31:0] data;
-  logic  [2:0]  addr_sel; //select data mem or periheral mem
-
-  assign addr_sel = addr_i[10:8];
+  logic  [7:0][31:0] data;
+  logic  [2:0]       addr_sel; //select data mem or periheral mem
+  
+  //assign data[7:5] = 32'b0;
+  assign addr_sel  = addr_i[10:8];
 
   //data_mem, external_mem to mux
   logic  [7:0][31:0] r_data;
@@ -37,7 +38,7 @@ module lsu (
                        .sel_i  (addr_sel    ),
 
                        //output
-                       .data_o (data        )
+                       .data_o (data   )
                        );
 
 //data memory
@@ -46,7 +47,7 @@ module lsu (
                        .rst_ni  (rst_ni     ),
                        .clk_i   (clk_i      ),
                        .addr_i  (addr_i[7:0]), //memory addr_i
-                       .wdata_i (data       ), //the write data
+                       .wdata_i (data[0]    ), //the write data
                        .wren_i  (st_en      ), //write enable
 
                        //output
@@ -58,7 +59,7 @@ module lsu (
                        .rst_ni  (rst_ni     ),
                        .clk_i   (clk_i      ),
                        .addr_i  (addr_i[7:0]), //memory addr_i
-                       .wdata_i (data       ), //the write data
+                       .wdata_i (data[1]    ), //the write data
                        .wren_i  (st_en      ), //write enable
 
                        //output
@@ -70,7 +71,7 @@ module lsu (
                        .rst_ni  (rst_ni     ),
                        .clk_i   (clk_i      ),
                        .addr_i  (addr_i[7:0]), //memory addr_i
-                       .wdata_i (data       ), //the write data
+                       .wdata_i (data[2]    ), //the write data
                        .wren_i  (st_en      ), //write enable
 
                        //output
@@ -82,7 +83,7 @@ module lsu (
                        .rst_ni  (rst_ni     ),
                        .clk_i   (clk_i      ),
                        .addr_i  (addr_i[7:0]), //memory addr_i
-                       .wdata_i (data       ), //the write data
+                       .wdata_i (data[3]    ), //the write data
                        .wren_i  (st_en      ), //write enable
 
                        //output
@@ -95,7 +96,7 @@ module lsu (
                        .rst_ni  (rst_ni     ),
                        .clk_i   (clk_i      ),
                        .addr_i  (addr_i[7:0]), //memory addr_i
-                       .wdata_i (data       ), //the write data
+                       .wdata_i (data[4]    ), //the write data
                        .wren_i  (st_en      ), //write enable
 
                        //output
