@@ -12,7 +12,14 @@ module lsu (
   output logic [31:0] io_lcd_o,
   output logic [31:0] io_ledg_o,
   output logic [31:0] io_ledr_o,
-  output logic [31:0] io_hex_o[7:0]
+  output logic [31:0] io_hex7_o,
+  output logic [31:0] io_hex6_o,
+  output logic [31:0] io_hex5_o,
+  output logic [31:0] io_hex4_o,
+  output logic [31:0] io_hex3_o,
+  output logic [31:0] io_hex2_o,
+  output logic [31:0] io_hex1_o,
+  output logic [31:0] io_hex0_o
 );
   //demux to data_mem, external_mem
   logic  [7:0][31:0] data;
@@ -128,166 +135,166 @@ module lsu (
   always_ff @(addr_i[10:4] or r_data[4]) 
     begin
           case (addr_i[10:4])
-            7'h40:
+            7'b100_0000:
             begin
-              io_hex_o[0] = r_data[4];
-              io_hex_o[1] = 0;
-              io_hex_o[2] = 0;
-              io_hex_o[3] = 0;
-              io_hex_o[4] = 0;
-              io_hex_o[5] = 0;
-              io_hex_o[6] = 0;
-              io_hex_o[7] = 0;
+              io_hex0_o = r_data[4];
+              io_hex1_o = 0;
+              io_hex2_o = 0;
+              io_hex3_o = 0;
+              io_hex4_o = 0;
+              io_hex5_o = 0;
+              io_hex6_o = 0;
+              io_hex7_o = 0;
               io_ledr_o   = 0;
               io_ledg_o   = 0;
               io_lcd_o    = 0;
             end
 
-            7'h41:
+            7'b100_0001:
             begin
-              io_hex_o[0] = 0;
-              io_hex_o[1] = r_data[4];
-              io_hex_o[2] = 0;
-              io_hex_o[3] = 0;
-              io_hex_o[4] = 0;
-              io_hex_o[5] = 0;
-              io_hex_o[6] = 0;
-              io_hex_o[7] = 0;
+              io_hex0_o = 0;
+              io_hex1_o = r_data[4];
+              io_hex2_o = 0;
+              io_hex3_o = 0;
+              io_hex4_o = 0;
+              io_hex5_o = 0;
+              io_hex6_o = 0;
+              io_hex7_o = 0;
               io_ledr_o   = 0;
               io_ledg_o   = 0;
               io_lcd_o    = 0;
             end
 
-            7'h42:
+            7'b100_0010:
             begin
-              io_hex_o[0] = 0;
-              io_hex_o[1] = 0;
-              io_hex_o[2] = r_data[4];
-              io_hex_o[3] = 0;
-              io_hex_o[4] = 0;
-              io_hex_o[5] = 0;
-              io_hex_o[6] = 0;
-              io_hex_o[7] = 0;
+              io_hex0_o = 0;
+              io_hex1_o = 0;
+              io_hex2_o = r_data[4];
+              io_hex3_o = 0;
+              io_hex4_o = 0;
+              io_hex5_o = 0;
+              io_hex6_o = 0;
+              io_hex7_o = 0;
               io_ledr_o   = 0;
               io_ledg_o   = 0;
               io_lcd_o    = 0;
             end
 
-            7'h43:
+            7'b100_0011:
             begin
-              io_hex_o[0] = 0;
-              io_hex_o[1] = 0;
-              io_hex_o[2] = 0;
-              io_hex_o[3] = r_data[4];
-              io_hex_o[4] = 0;
-              io_hex_o[5] = 0;
-              io_hex_o[6] = 0;
-              io_hex_o[7] = 0;
+              io_hex0_o = 0;
+              io_hex1_o = 0;
+              io_hex2_o = 0;
+              io_hex3_o = r_data[4];
+              io_hex4_o = 0;
+              io_hex5_o = 0;
+              io_hex6_o = 0;
+              io_hex7_o = 0;
               io_ledr_o   = 0;
               io_ledg_o   = 0;
               io_lcd_o    = 0;
             end
 
-            7'h44:
+            7'b100_0100:
             begin
-              io_hex_o[0] = 0;
-              io_hex_o[1] = 0;
-              io_hex_o[2] = 0;
-              io_hex_o[3] = 0;
-              io_hex_o[4] = r_data[4];
-              io_hex_o[5] = 0;
-              io_hex_o[6] = 0;
-              io_hex_o[7] = 0;
+              io_hex0_o = 0;
+              io_hex1_o = 0;
+              io_hex2_o = 0;
+              io_hex3_o = 0;
+              io_hex4_o = r_data[4];
+              io_hex5_o = 0;
+              io_hex6_o = 0;
+              io_hex7_o = 0;
               io_ledr_o   = 0;
               io_ledg_o   = 0;
               io_lcd_o    = 0;
             end
 
-            7'h45:
+            7'b100_0101:
             begin
-              io_hex_o[0] = 0;
-              io_hex_o[1] = 0;
-              io_hex_o[2] = 0;
-              io_hex_o[3] = 0;
-              io_hex_o[4] = 0;
-              io_hex_o[5] = r_data[4];
-              io_hex_o[6] = 0;
-              io_hex_o[7] = 0;
+              io_hex0_o = 0;
+              io_hex1_o = 0;
+              io_hex2_o = 0;
+              io_hex3_o = 0;
+              io_hex4_o = 0;
+              io_hex5_o = r_data[4];
+              io_hex6_o = 0;
+              io_hex7_o = 0;
               io_ledr_o   = 0;
               io_ledg_o   = 0;
               io_lcd_o    = 0;
             end
             
-            7'h46:
+            7'b100_0110:
             begin
-              io_hex_o[0] = 0;
-              io_hex_o[1] = 0;
-              io_hex_o[2] = 0;
-              io_hex_o[3] = 0;
-              io_hex_o[4] = 0;
-              io_hex_o[5] = 0;
-              io_hex_o[6] = r_data[4];
-              io_hex_o[7] = 0;
+              io_hex0_o = 0;
+              io_hex1_o = 0;
+              io_hex2_o = 0;
+              io_hex3_o = 0;
+              io_hex4_o = 0;
+              io_hex5_o = 0;
+              io_hex6_o = r_data[4];
+              io_hex7_o = 0;
               io_ledr_o   = 0;
               io_ledg_o   = 0;
               io_lcd_o    = 0;
             end
 
-            7'h47:
+            7'b100_0111:
             begin
-              io_hex_o[0] = 0;
-              io_hex_o[1] = 0;
-              io_hex_o[2] = 0;
-              io_hex_o[3] = 0;
-              io_hex_o[4] = 0;
-              io_hex_o[5] = 0;
-              io_hex_o[6] = 0;
-              io_hex_o[7] = r_data[4];
+              io_hex0_o = 0;
+              io_hex1_o = 0;
+              io_hex2_o = 0;
+              io_hex3_o = 0;
+              io_hex4_o = 0;
+              io_hex5_o = 0;
+              io_hex6_o = 0;
+              io_hex7_o = r_data[4];
               io_ledr_o   = 0;
               io_ledg_o   = 0;
               io_lcd_o    = 0;
             end
 
-            7'h48:
+            7'b100_1000:
             begin
-              io_hex_o[0] = 0;
-              io_hex_o[1] = 0;
-              io_hex_o[2] = 0;
-              io_hex_o[3] = 0;
-              io_hex_o[4] = 0;
-              io_hex_o[5] = 0;
-              io_hex_o[6] = 0;
-              io_hex_o[7] = 0;
+              io_hex0_o = 0;
+              io_hex1_o = 0;
+              io_hex2_o = 0;
+              io_hex3_o = 0;
+              io_hex4_o = 0;
+              io_hex5_o = 0;
+              io_hex6_o = 0;
+              io_hex7_o = 0;
               io_ledr_o   = r_data[4];
               io_ledg_o   = 0;
               io_lcd_o    = 0;
             end
 
-            7'h49:
+            7'b100_1001:
             begin
-              io_hex_o[0] = 0;
-              io_hex_o[1] = 0;
-              io_hex_o[2] = 0;
-              io_hex_o[3] = 0;
-              io_hex_o[4] = 0;
-              io_hex_o[5] = 0;
-              io_hex_o[6] = 0;
-              io_hex_o[7] = 0;
+              io_hex0_o = 0;
+              io_hex1_o = 0;
+              io_hex2_o = 0;
+              io_hex3_o = 0;
+              io_hex4_o = 0;
+              io_hex5_o = 0;
+              io_hex6_o = 0;
+              io_hex7_o = 0;
               io_ledr_o   = 0;
               io_ledg_o   = r_data[4];
               io_lcd_o    = 0;
             end
 
-            7'h4a:
+            7'b100_1010:
             begin
-              io_hex_o[0] = 0;
-              io_hex_o[1] = 0;
-              io_hex_o[2] = 0;
-              io_hex_o[3] = 0;
-              io_hex_o[4] = 0;
-              io_hex_o[5] = 0;
-              io_hex_o[6] = 0;
-              io_hex_o[7] = 0;
+              io_hex0_o = 0;
+              io_hex1_o = 0;
+              io_hex2_o = 0;
+              io_hex3_o = 0;
+              io_hex4_o = 0;
+              io_hex5_o = 0;
+              io_hex6_o = 0;
+              io_hex7_o = 0;
               io_ledr_o   = 0;
               io_ledg_o   = 0;
               io_lcd_o    = r_data[4];
@@ -295,14 +302,14 @@ module lsu (
 
             default:
             begin
-              io_hex_o[0] = 0;
-              io_hex_o[1] = 0;
-              io_hex_o[2] = 0;
-              io_hex_o[3] = 0;
-              io_hex_o[4] = 0;
-              io_hex_o[5] = 0;
-              io_hex_o[6] = 0;
-              io_hex_o[7] = 0;
+              io_hex0_o = 0;
+              io_hex1_o = 0;
+              io_hex2_o = 0;
+              io_hex3_o = 0;
+              io_hex4_o = 0;
+              io_hex5_o = 0;
+              io_hex6_o = 0;
+              io_hex7_o = 0;
               io_ledr_o   = 0;
               io_ledg_o   = 0;
               io_lcd_o    = 0;
